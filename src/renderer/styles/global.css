@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ecf0f1; /* Consistent with theme background */
+  color: #333;
+}
+
+#root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Example: Style for links to make them more prominent if needed */
+a {
+  /* color: #3498db; */ /* Example link color */
+  /* text-decoration: none; */
+}
+
+/* a:hover { */
+  /* text-decoration: underline; */
+/* } */
+
+/* Add more global styles here as needed */
+
+.MuiSnackbarContent-root {
+  white-space: pre-wrap; /* Allow multiline snackbar messages */
+}

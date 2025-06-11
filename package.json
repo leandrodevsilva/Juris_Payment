@@ -1,0 +1,99 @@
+{
+  "name": "juris-payment",
+  "version": "1.0.0",
+  "description": "Aplicativo desktop para controle de pagamentos de clientes de escritório de advocacia.",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build-renderer": "set NODE_ENV=production && webpack --mode production --config webpack.renderer.config.js",
+    "build": "electron-builder --x64 --win",
+    "dev": "set NODE_ENV=development && set ELECTRON_ENABLE_LOGGING=true && set ELECTRON_ENABLE_STACK_DUMPING=true && concurrently --kill-others \"npm run watch-react\" \"npm run watch-electron\"",
+    "watch-react": "webpack serve --config webpack.renderer.config.js",
+    "watch-electron": "electron .",
+    "debug": "electron . --enable-logging --remote-debugging-port=9222 --trace-warnings",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "keywords": [
+    "electron",
+    "react",
+    "juris",
+    "payment"
+  ],
+  "author": "Leandro_Silva",
+  "license": "ISC",
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.12",
+    "@mui/material": "^5.14.12",
+    "chart.js": "^4.4.9",
+    "electron-squirrel-startup": "^1.0.0",
+    "extract-zip": "^2.0.1",
+    "fd-slicer": "^1.1.0",
+    "react": "^18.2.0",
+    "react-chartjs-2": "^5.3.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.16.0",
+    "sqlite3": "^5.1.6",
+    "yauzl": "^3.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.0",
+    "@babel/preset-env": "^7.23.0",
+    "@babel/preset-react": "^7.22.15",
+    "babel-loader": "^9.1.3",
+    "concurrently": "^8.2.2",
+    "css-loader": "^6.8.1",
+    "electron": "^27.0.0",
+    "electron-builder": "^24.6.4",
+    "electron-rebuild": "^3.2.9",
+    "html-webpack-plugin": "^5.5.3",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
+    "webpack-merge": "^5.9.0"
+  },
+  "build": {
+    "appId": "com.jurispayment.app",
+    "productName": "Juris Payment",
+    "files": [
+      "dist/**/*",
+      "src/**/*",
+      "package.json",
+      "public/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "public/icon.ico"
+    },
+    "mac": {
+      "icon": "public/icon.icns",
+      "category": "public.app-category.finance"
+    },
+    "linux": {
+      "icon": "public/icon.png",
+      "category": "Office;Finance"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "artifactName": "${productName} Setup.${ext}",
+      "deleteAppDataOnUninstall": true
+    },
+    "asar": false,
+    "directories": {
+      "output": "dist",
+      "buildResources": "public"
+    },
+    "extraResources": [
+      {
+        "from": "src/main",
+        "to": "app/src/main",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ]
+  }
+}
