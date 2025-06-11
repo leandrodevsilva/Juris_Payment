@@ -35,7 +35,7 @@ Juris Payment é um sistema de gerenciamento de pagamentos para desktop, projeta
 
 1.  **Clone o repositório** (se aplicável, substitua pela URL correta):
     ```bash
-    git clone <URL_DO_SEU_REPOSITORIO_GIT_AQUI>
+    git clone https://github.com/leandrodevsilva/Juris_Payment?tab=readme-ov-file
     cd JurisPayment
     ```
     Se você já possui os arquivos do projeto, pule esta etapa e navegue até o diretório `JurisPayment`.
